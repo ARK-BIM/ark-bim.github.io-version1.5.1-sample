@@ -1,0 +1,723 @@
+     <!DOCTYPE html>
+     <html lang="en" dir="ltr">
+
+     <head>
+     <meta charset="utf-8">
+     <title>ARK-BIM</title>
+     <script src="C:\Users\Filippo\Desktop\ARK-BIM 1.5\ARK-BIM 1.51 - LIGHT\10X_light.js" charset="utf-8"></script>
+	 <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+	 <link rel="stylesheet" href="assets/css/style.css">
+	 <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+
+     </head>
+     <body>
+	 
+     <div style="height: 100vh; width:70wh">
+     <div id="app"></div>
+     </div>
+
+	 <script>
+	 
+	 
+
+
+
+     <!-- VIEWER--> 
+
+                 const cfg = {
+                   cloudId: 5933,
+                   projectId: 304118,
+                   ifcIds: [23295],
+				   backgroundColor: '#e3e3e3',
+                   bimdataPlugins: {
+					bcf: true,
+                    reload: true,
+                    model: true,
+                    help: true,
+                    fullscreen: true,
+					property: true,
+					edit: true,
+					comment: true,
+                    section: true,
+                    projection: true,
+                    selectOptions: true,
+                    structureandProperties: true,
+                    logo: true,
+                    rightClickMenu: true,
+                    viewer3DNavCube: true,
+					viewer2d: true,
+					contextSwitch: true,
+					editProperties: true,
+					allowExport: true,
+					windowManager: true,
+			        saoEnabled: true,
+                   }
+                 };
+                 const accessToken = "IHJHcwjUjiX9WOteBI3ruiLSRzBkqBSv";
+                 const { viewer, store, eventHub, setAccessToken } = initBIMDataViewer(
+                     "app",
+                     accessToken,
+                     cfg
+                 );
+				 
+				 
+		
+			
+				 
+				 
+	<!-- RIGHT CLICK FILTER  3D  SPACE--> 			 
+				 
+ viewer.registerPlugins([
+      {
+        name: "HideSpacePlugin",
+        component: {
+          render() {
+            return null;
+          },
+          created() {
+            // Add right click command
+            const rightClickMenu = this.$plugins.rightClickMenu;
+            const getspaceIds = () =>
+              this.$utils.getAllObjectsOfType("space").map(
+                object => object.uuid
+              );
+            const hidespace = () => {
+              this.$hub.emit("hide-objects", {
+                ids: getspaceIds()
+              });
+            };
+            const isspaceVisible = () => {
+              const allObjects = Object.values(
+                this.$plugins.viewer3D.xeokit.scene.objects
+              );
+              const spaceUUIDs = getspaceIds();
+              const spaceObjects = allObjects.filter(object =>
+                spaceUUIDs.includes(object.id)
+              );
+              return spaceObjects.some(spaceObject => spaceObject.visible);
+            };
+            rightClickMenu.registerCommand({
+              label: "Hide spaces",
+              picto: "K",
+              execute: hidespace,
+              predicate: isspaceVisible
+            });
+
+            // Register keyboard shortcut
+            this.$plugins.keyboardShortcutsManager.registerKeyboardShortcut(
+              "K",
+              hidespace
+            );
+          }
+        },
+      }
+    ]);
+				 
+
+
+    <!-- MODALS--> 
+
+        viewer.registerPlugins([{
+        name: "modals",
+        component: {
+        render() {
+            return null;
+        },
+        created() {
+            this.$plugins.modalManager.pushModal({
+            template: `
+                <div style="margin:70px; width: 280px; text-align: center; font-family: poppins">
+                <h1 style="font-weight: 850">ARK-BIM</h1>
+				<a>version 1.5.1</a>
+                </div>`
+            });
+         },
+        },
+        }]);
+		
+    <!-- SETTING-->        
+		
+	    viewer.registerPlugins([{
+        name: "Settings",
+        component: {
+        template: `
+        <div style="width: 250px">
+		     <h4 style="text-align: left; font-family: poppins; margin-top: 1px">Settings</h4>
+		<div class="btn-group">
+        <button @click="onInfoClick" style="text-align: left"> <span style="color: #505050"> <i class="fas fa-info-circle fa-lg"></i> &nbsp </span>Info</button> 
+        <button @click="onHelpClick" style="text-align: left"> <span style="color: #505050"> <i class="fas fa-question-circle fa-lg"></i> &nbsp </span>Help</button> 
+        <button @click="onDownClick"style="text-align: left"> <span style="color: #505050"> <i class="fas fa-download fa-lg"></i> &nbsp </span>Download</button> 
+		<button @click="onEdgesClick"style="text-align: left"> <span style="color: #505050"> <i class="fas fa-border-none fa-lg"></i> &nbsp </span>No Edges</button> 
+		<button @click="onDarkClick"style="text-align: left"> <span style="color: #505050"> <i class="fas fa-moon fa-lg"></i> &nbsp </span>Dark Mode</button> 
+        </div>
+        `,
+		             methods: {
+                     onInfoClick() {
+                     this.$plugins.modalManager.pushModal({
+                     template: `
+                <div style="margin:40px; width: 700px; font-family: poppins">
+                <h1 style="text-align: center">Information</h1>
+				<p>&nbsp;</p>
+				<h2 style="text-align: justify; font-weight: 800">ARK-BIM</h2>
+				<a style="text-align: justify">version 1.5.1</a>
+                <h3 style="text-align: justify; font-size: 13px">created by Filippo Diara</h3>
+				<p>This platform is based on 0.8.26 version of BIMData viewer (bimdata.io) 
+                and plugin implementation on HTML web app. BIMData viewer based 
+                itself on XEOKIT open source development tools.</p>
+				<p style="text-align: justify; font-color: grey">ARK-BIM codes are available on the official web site: <a href="https://ark-bim.github.io/">ARK-BIM</a> </p>
+                </div>`
+                           })
+                         },
+					 onHelpClick() {
+                     this.$plugins.modalManager.pushModal({
+                     template: `
+                     <div>
+					 <img src="https://raw.githubusercontent.com/phxd88/archivio/main/help.png">
+                     </div>`
+                           })
+                         },
+				     onDownClick() {
+                     window.open("https://storage.gra.cloud.ovh.net/v1/AUTH_b6a1c0b6b7c041d3a71d56f84ce25102/bimdata-prod/cloud_5933/project_304118/Sample_Model_ARK-BIM_zHfXQau.ifc?temp_url_sig=37dec9858ce8626817e172a200c5ccfe9ae8e75a&temp_url_expires=1628238081")
+                         },
+	                 onEdgesClick() {
+                     window.open("")
+                         },
+		             onDarkClick() {
+                     window.open("")
+                         },
+                       },
+				 },
+            display: {
+            iconPosition: 'left',
+            content: 'simple'
+          },
+		  keepActive:true,
+          icon: {imgUri: 'assets/img/1.png'},
+          tooltip: "Settings"
+        }]);
+
+     <!-- RESOURCES--> 
+
+				 viewer.registerPlugins([{
+                     name: "Resources",
+                     component: {
+                       template: `
+                         <div class="btn-group" style="width: 250px">
+						 <h4 style="text-align: left; font-family: poppins; margin-top: 1px">Resources</h4>
+						   <button @click="onDescriptionClick"> <span style="color: #505050"> <i class="far fa-file-alt fa-lg"></i> &nbsp </span> Description</button>
+                           <button @click="onReferencesClick"> <span style="color: #505050"> <i class="far fa-bookmark fa-lg"></i> &nbsp </span> References</button>
+                         </div>`,
+                         methods: {
+                         onReferencesClick() {
+                          this.$plugins.modalManager.pushModal({
+                            template: `
+         <div style="margin: 20px; font-family: poppins">
+		 <h2>Sample Datasheet - Bibliographic References</h2>
+         <table>
+         <tr>
+         <th>Author</th>
+         <th>Publication</th>
+         <th>Year</th>
+
+         </tr>
+         <tr>
+         <td>Author Name Surname</td>
+         <td>Sample title book, paper, manuscript - year, editor, pages, DOI, ISSN, ISBN</td>
+         <td>reference year</td>
+         </tr>
+         <tr>
+         <td>Author Name Surname</td>
+         <td>Sample title book, paper, manuscript - year, editor, pages, DOI, ISSN, ISBN</td>
+         <td>reference year</td>
+         </tr>
+         <tr>
+         <td>Author Name Surname</td>
+         <td>Sample title book, paper, manuscript - year, editor, pages, DOI, ISSN, ISBN</td>
+         <td>reference year</td>
+         </tr>
+	     <tr>
+         <td>Author Name Surname</td>
+         <td>Sample title book, paper, manuscript - year, editor, pages, DOI, ISSN, ISBN</td>
+         <td>reference year</td>
+         </tr>
+         </table>
+         </div>`,
+                           });
+                         },
+						  onDescriptionClick() {
+                          this.$plugins.modalManager.pushModal({
+                            template: `
+                              <div style="width: 900px; height: 400px; margin: 100px; font-size: 18px; text-align: justify; font-family: poppins">
+							     <h2>Short Description</h2>
+								 <a> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                 </a>
+                              </div>`
+                           });
+                         },
+                       }
+                     },
+					 keepActive:true,
+                     display: {
+                       iconPosition: 'left',
+                       content: 'simple'
+                     },
+					 icon: {imgUri: 'assets/img/2.png'},
+                     tooltip: "Resources.tooltip",
+                     i18n: {
+                       en: {
+                         Resources: {
+                           tooltip: "Resources",
+                         }
+                       },
+                     }
+                   }]);
+
+    <!-- IMAGES--> 
+
+	    viewer.registerPlugins([{
+        name: "Images",
+        component: {
+        template: `
+        <div>
+		  <a target="_blank">
+             <img src="assets/img/1.jpg" width="400" height="300">
+		  </a>
+		  <a target="_blank">
+             <img src="assets/img/2.jpg" width="400" height="300">
+		  </a>
+		  <a target="_blank">
+             <img src="assets/img/3.jpg" width="400" height="300">
+		  </a>
+		  <a target="_blank">
+             <img src="assets/img/4.jpg" width="400" height="300">
+		  </a>
+		  <a target="_blank">
+             <img src="assets/img/5.jpg" width="400" height="300">
+		  </a>	
+		</div>
+        `,
+          },
+          display: {
+            iconPosition: 'left',
+            content: 'windowed'
+          },
+          icon: {imgUri: 'assets/img/3.png'},
+          tooltip: "Images"
+        }]);
+
+     <!-- DATABASE--> 
+
+        viewer.registerPlugins([{
+                     name: "database",
+                     component: {
+                       template: `
+                         <div class="btn-group" style="width: 250px">
+						 <h4 style="text-align: left; font-family: poppins; margin-top: 1px">Database</h4>
+						   <button @click="onData1Click"> <span style="color: #505050"> <i class="fas fa-table fa-lg"></i> &nbsp </span> Database_1</button>
+                           <button @click="onData2Click"> <span style="color: #505050"> <i class="fas fa-table fa-lg"></i> &nbsp </span> Database_2</button>
+                         </div>`,
+                         methods: {
+						 
+						 onData1Click() {
+                         window.open("http://127.0.0.1:8600/")
+                         },
+						 onData2Click() {
+                         window.open("http://127.0.0.1:8700/")
+                         },
+                       }
+                     },
+					 keepActive:true,
+                     display: {
+                       iconPosition: 'left',
+                       content: 'simple'
+                     },
+					 icon: {imgUri: 'assets/img/4.png'},
+                     tooltip: "Database.tooltip",
+                     i18n: {
+                       en: {
+                         Database: {
+                           tooltip: "Database",
+                         }
+                       },
+                     }
+                   }]);
+
+     <!-- GEOGRAPHIC POSITION--> 
+
+				 viewer.registerPlugins([{
+                     name: "GEOGRAPHIC_POSITION",
+                     component: {
+                       template: `
+                    <div style="width: auto">
+					<h4 style="text-align: left; font-family: poppins; margin-top: 1px">Geographic position</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d731.8790028367486!2d12.485942017585936!3d41.89165543845167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f61b48c6e32ed%3A0xb0771e1359b10661!2sRegia!5e1!3m2!1sit!2sit!4v1628177474353!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+		            </div>`
+                     },
+                     display: {
+                       iconPosition: 'left',
+                       content: 'simple'
+                     },
+					 icon: {
+                     imgUri: 'assets/img/5.png'
+                     },
+                     tooltip: "Geographic_position.tooltip",
+                     i18n: {
+                       en: {
+                         Geographic_position: {
+                           tooltip: "Geographic position",
+                         }
+                       },
+                     }
+                   }]);
+
+    <!-- ISOLATE ELEMENTS--> 
+
+				 viewer.registerPlugins([{
+                     name: "Isolate Elements",
+                     component: {
+                       template: `
+                         <div style="width:250px" class="btn-group">
+						   <h4 style="text-align: left; font-family: poppins; margin-top: 1px">Isolate Elements</h4>
+                           <button @click="onIsolateWallsClick">Walls</button>
+						   <button @click="onIsolateColumnsClick">Columns</button>
+						   <button @click="onIsolateFootingsClick">Footings</button>
+						   <button @click="onIsolateWindowsClick">Windows</button>
+						   <button @click="onIsolateBeamsClick">Beams</button>
+						   <button @click="onIsolateSlabClick">Slabs</button>
+						   <button @click="onIsolateStairsClick">Stairs</button>
+						   <button @click="onIsolateDoorsClick">Doors</button>
+						   <button @click="onIsolateFurnituresClick">Furnitures</button>
+						   <button @click="onIsolateElementClick">Building Element</button>
+						   <button @click="onIsolateRoofClick">Roof</button>	    
+                           <button @click="onUnisolateClick" style="background-color: #c7c7c7">Reset scene</button>
+                         </div>`,
+                       methods: {
+                         onIsolateWallsClick() {
+                           this.$hub.emit("isolate-objects", {
+                             ids: this.$utils.getAllObjectsOfType("wall")
+							 .map(object => object.uuid)
+                           });
+                         },
+						 onIsolateColumnsClick() {
+                           this.$hub.emit("isolate-objects", {
+                             ids: this.$utils.getAllObjectsOfType("column")
+							 .map(object => object.uuid)
+                           });
+						 },
+				           onIsolateFootingsClick() {
+                           this.$hub.emit("isolate-objects", {
+                             ids: this.$utils.getAllObjectsOfType("footing")
+							 .map(object => object.uuid)
+                           });
+						 },
+					       onIsolateBeamsClick() {
+                           this.$hub.emit("isolate-objects", {
+                             ids: this.$utils.getAllObjectsOfType("beam")
+							 .map(object => object.uuid)
+                           });
+						 },
+						   onIsolateSlabClick() {
+                           this.$hub.emit("isolate-objects", {
+                             ids: this.$utils.getAllObjectsOfType("slab")
+							 .map(object => object.uuid)
+                           });
+						 },
+						   onIsolateStairsClick() {
+                           this.$hub.emit("isolate-objects", {
+                             ids: this.$utils.getAllObjectsOfType("stair")
+							 .map(object => object.uuid)
+                           });
+						 },
+						   onIsolateDoorsClick() {
+                           this.$hub.emit("isolate-objects", {
+                             ids: this.$utils.getAllObjectsOfType("door")
+							 .map(object => object.uuid)
+                           });
+						 },
+						   onIsolateFurnituresClick() {
+                           this.$hub.emit("isolate-objects", {
+                             ids: this.$utils.getAllObjectsOfType("furnishing_element")
+							 .map(object => object.uuid)
+                           });
+						 },
+						   onIsolateElementClick() {
+                           this.$hub.emit("isolate-objects", {
+                             ids: this.$utils.getAllObjectsOfType("building_element")
+							 .map(object => object.uuid)
+                           });
+						 },
+				        onIsolateWindowsClick() {
+                           this.$hub.emit("isolate-objects", {
+                             ids: this.$utils.getAllObjectsOfType("window")
+							 .map(object => object.uuid)
+                           });
+						 },
+						onIsolateRoofClick() {
+                           this.$hub.emit("isolate-objects", {
+                             ids: this.$utils.getAllObjectsOfType("roof")
+							 .map(object => object.uuid)
+                           });
+						 },
+                         onUnisolateClick() {
+                           this.$hub.emit("unisolate-all-objects");
+                         }
+                       }
+                     },
+                      display: {
+                       iconPosition: 'left',
+                       content: 'simple'
+                     },
+					 icon: {
+                     imgUri: 'assets/img/6.png',
+                     },
+					 keepActive: true,
+                     tooltip: "myCustomPlugin.tooltip",
+                     i18n: {
+                       en: {
+                         myCustomPlugin: {
+                           tooltip: "Isolate Elements",
+                         }
+                       },
+                     }
+                   }]);
+
+	
+     <!-- PICK STRATIGRAPHIC UNITS--> 
+	
+	  viewer.registerPlugins([{
+      name: "Pick Stratigraphic units",
+      component: {
+        template: `
+        <div style="width: 250px" class="btn-group">
+		<h4 style="text-align: left; font-family: poppins; margin-top: 1px">Pick stratigraphic units</h4>
+          <select v-model="priority" style="width: 100%; height: 30px">
+		    &nbsp
+            <option disabled value="">Stratigraphic Units</option>
+			&nbsp
+            <option style="font-family: poppins; font-size: 15px" value="low">US</option>
+            <option style="font-family: poppins; font-size: 15px" value="medium">USR</option>
+            <option style="font-family: poppins; font-size: 15px" value="high">USM</option>
+            </select>
+            <input type="text" v-model="index" style="text-align: center; height: 30px">
+			
+			&nbsp
+	
+		    <button @click="onLink_0Click" style="text-align: left"> <span style="color: #505050"> <i class="fas fa-question-circle fa-lg"></i> &nbsp </span> Help</button>
+
+			<button @click="onLink_1Click" style="text-align: left"> <span style="color: #505050"> <i class="fas fa-trash-alt fa-lg"></i> &nbsp </span> Remove selected</button>
+
+			<button @click="onLink_2Click" style="text-align: left"> <span style="color: #505050"> <i class="fas fa-trash-alt fa-lg"></i> &nbsp </span> Remove all</button>
+        </div>
+        `,
+        data() {
+          return {
+            priority: "",
+            pickSubscription: null,
+            index: 1
+          };
+        },
+		
+				methods: {
+				    onLink_0Click() {
+                     this.$plugins.modalManager.pushModal({
+                     template: `
+                <div style="margin:50px; width: 800px; font-family: poppins">
+				<h2 style="text-align: justify">Pick stratigraphic units - help</h2>
+				<p>1) Select stratigraphic units typology and units number</p>
+			    <p>2) Pick units on highlight object of the model</p>
+				<p>3) Picked units will appear on the objects center of mass</p>
+				&nbsp
+				<p>- Press "Remove selected units" button in order to delete selected unit (object must be selected)</p>
+				<p>- Press "Remove all units" button in order to delete ALL units</p>
+								&nbsp
+				<h3 style="text-align: justify">ATTENTION!</h3>
+				<p>This tool has no memory and then no save option! Once you finished picking units you can save a screeshot</p>
+                </div>`
+                           })
+                         },
+                    onLink_1Click() {
+                      this.$hub.emit("delete-annotations", {
+                      ids: this.$utils.getSelectedObjectIds()
+                            });
+                          },
+					onLink_2Click() {
+                      this.$hub.emit("clear-annotations")
+                          },
+                      },
+		
+		
+        props: ["active"],
+        watch: {
+          active: {
+            handler(active) {
+              const viewer3D = this.$plugins.viewer3D;
+              viewer3D.selectOnClick = !active;
+              // viewer3D.highlightOnHover = !active; // To remove the highlight on hover
+              if (active) {
+                document.body.style.setProperty("cursor", "copy", "important");
+                this.pickSubscription = viewer3D.xeokit.cameraControl.on(
+                  "picked",
+                  pickResult => {
+                    if (!this.priority) {
+                      return this.$hub.emit('alert', { type: 'warning', message: 'Please select a stratigraphic units typology' });
+                    }
+                    if (!pickResult || !pickResult.entity) return;
+                    this.$hub.emit("create-annotations", {
+                      ids: [pickResult.entity.id],
+                      index: this.index,
+                      priority: this.priority
+                    });
+                  }
+                );
+              } 
+            }
+          }
+        }
+      },
+      display: {
+        iconPosition: "left",
+		content: "simple"
+      },
+	  	  			     icon: {
+                     imgUri: 'assets/img/7.png'
+                     },
+                     keepActive: true,
+	                       tooltip: "stratigraphic.tooltip",
+                     i18n: {
+                       en: {
+                         stratigraphic: {
+                           tooltip: "Pick Stratigraphic Units",
+                         }
+                       }
+                     },
+    }])
+	
+	
+    <!-- LEGEND--> 
+
+				 viewer.registerPlugins([{
+                     name: "strati",
+                     component: {
+                       template: `
+                         <div style="width: 450px; font-family: poppins; background-color: #e3e3e3">
+						   <h4 style="font-size:21px"> &nbsp Stratigraphic Units Legend<h4>
+						   &nbsp
+						   
+                           <p style="font-size:17px">  &nbsp <span class="dot1"></span> &nbsp Stratigraphic Unit </p> 
+						   &nbsp
+                           <p style="font-size:17px">  &nbsp <span class="dot2"></span> &nbsp Render / Plaster Stratigraphic Unit </p> 
+						   &nbsp
+                           <p style="font-size:17px">  &nbsp <span class="dot3"></span> &nbsp Masonry Stratigraphic Unit </p> 
+                         </div>`,
+                     },
+                     display: {
+                       iconPosition: 'left',
+                       content: 'free'
+                     },
+					 keepActive:true,
+					 icon: {
+                     imgUri: 'assets/img/8.png'
+                     },
+                     tooltip: "strati.tooltip",
+                     i18n: {
+                       en: {
+                         strati: {
+                           tooltip: "Stratigraphic Units Legend",
+                         }
+                       },
+                     }
+                   }]); 
+	
+    <!-- Hotspot MODEL--> 
+
+				 viewer.registerPlugins([{
+                     name: "Hotspot_model",
+                     component: {
+                       template: `
+                         <div style="width: 250px" class="btn-group">
+                           <button @click="onLink_1Click"> <span style="color: #505050"> <i class="fas fa-thumbtack fa-lg"></i> &nbsp </span> Interactive Model</button>
+                         </div>`,
+                       methods: {
+                         onLink_1Click() {
+                         window.open("XEOKIT plugins/Hotspot model/index.html")
+                         },
+                       }
+                     },
+                     display: {
+                       iconPosition: 'right',
+                       content: 'simple'
+                     },
+					 icon: {
+                     imgUri: 'assets/img/9.png'
+                     },
+                     tooltip: "Hotspot model",
+                     i18n: {
+                       en: {
+                         Interactive_model: {
+                           tooltip: "Hotspot model",
+                         }
+                       },
+                     }
+                   }]); 
+
+
+    <!-- MEASUREMENETS CENTER--> 
+
+				 viewer.registerPlugins([{
+                     name: "Measurements_center",
+                     component: {
+                       template: `
+                         <div style="width: 250px" class="btn-group">
+                     	   <button @click="onLink_1Click"> <span style="color: #505050"> <i class="fas fa-ruler-combined fa-lg"></i> &nbsp </span> Start to Measure </button>
+                         </div>`,
+                       methods: {
+                         onLink_1Click() {
+                         window.open("XEOKIT plugins/Measurement Center/index.html")
+                         },
+                       }
+                     },
+                     display: {
+                       iconPosition: 'right',
+                       content: 'simple'
+                     },
+					 icon: {
+                     imgUri: 'assets/img/10.png'
+                     },
+                     tooltip: "measurements_center.tooltip",
+                     i18n: {
+                       en: {
+                         measurements_center: {
+                           tooltip: "Measurements Center",
+                         }
+                       },
+                     }
+                   }]); 	
+
+ <!-- NAV CUBE SETTINGS--> 
+
+	    new NavCubePlugin(viewer, {
+        canvasId: "myNavCubeCanvas",
+        visible: true,           // Initially visible (default)
+        size: 200,               // NavCube size in pixels (default is 200)
+        alignment: "topRight",   // Align NavCube to top-left of Viewer canvas
+        topMargin: 170,          // 170 pixels margin from top of Viewer canvas
+        cameraFly: true,       // Fly camera to each selected axis/diagonal
+        cameraFitFOV: 45,        // How much field-of-view the scene takes once camera has fitted it to view
+        cameraFlyDuration: 0.5 // How long (in seconds) camera takes to fly to each new axis/diagonal
+    });	
+
+	
+</script>
+
+
+ <!-- FOOTER--> 
+ 
+<div class="footer">
+  <p style="font-size: 13px; color: #303030"> &nbsp <b style="font-size: 15px; color: #353535"> ARK-BIM </b> &nbsp 1.5.1 - Cloud HBIM for Archaeology  </p> 
+</div>
+
+
+</body>
+
+	
+</html>
