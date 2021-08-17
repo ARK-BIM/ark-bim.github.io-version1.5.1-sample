@@ -4,7 +4,7 @@
      <head>
      <meta charset="utf-8">
      <title>ARK-BIM</title>
-     <script src="C:\Users\Filippo\Desktop\ARK-BIM 1.5\ARK-BIM 1.51 - LIGHT\10X_light-NO Edges.js" charset="utf-8"></script>
+     <script src="https://github.com/ARK-BIM/version1.5.1-sample/blob/gh-pages/10X_light-NO%20Edges.js" charset="utf-8"></script>
 	 <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 	 <link rel="stylesheet" href="assets/css/style.css">
 	 <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
@@ -145,8 +145,8 @@
         <button @click="onInfoClick" style="text-align: left"> <span style="color: #505050"> <i class="fas fa-info-circle fa-lg"></i> &nbsp </span>Info</button> 
         <button @click="onHelpClick" style="text-align: left"> <span style="color: #505050"> <i class="fas fa-question-circle fa-lg"></i> &nbsp </span>Help</button> 
         <button @click="onDownClick"style="text-align: left"> <span style="color: #505050"> <i class="fas fa-download fa-lg"></i> &nbsp </span>Download</button> 
-		<button @click="onEdgesClick"style="text-align: left"> <span style="color: #505050"> <i class="fas fa-border-none  fa-lg"></i> &nbsp </span>No Edges</button> 
-		<button @click="onDarkClick"style="text-align: left"> <span style="color: #505050"> <i class="far fa-moon fa-lg"></i> &nbsp </span>Light Mode</button> 
+		<button @click="onEdgesClick"style="text-align: left"> <span style="color: #505050"> <i class="fas fa-border-none fa-lg"></i> &nbsp </span>No Edges</button> 
+		<button @click="onDarkClick"style="text-align: left"> <span style="color: #505050"> <i class="fas fa-moon fa-lg"></i> &nbsp </span>Dark Mode</button> 
         </div>
         `,
 		             methods: {
@@ -312,15 +312,11 @@
                          <div class="btn-group" style="width: 250px">
 						 <h4 style="text-align: left; font-family: poppins; margin-top: 1px">Database</h4>
 						   <button @click="onData1Click"> <span style="color: #505050"> <i class="fas fa-table fa-lg"></i> &nbsp </span> Database_1</button>
-                           <button @click="onData2Click"> <span style="color: #505050"> <i class="fas fa-table fa-lg"></i> &nbsp </span> Database_2</button>
                          </div>`,
                          methods: {
 						 
 						 onData1Click() {
-                         window.open("http://127.0.0.1:8600/")
-                         },
-						 onData2Click() {
-                         window.open("http://127.0.0.1:8700/")
+                         window.open("https://github.com/ARK-BIM/version1.5.1-sample/blob/gh-pages/Database%20plugin/index.html")
                          },
                        }
                      },
@@ -637,7 +633,7 @@
                          </div>`,
                        methods: {
                          onLink_1Click() {
-                         window.open("XEOKIT plugins/Hotspot model/index.html")
+                         window.open("https://github.com/ARK-BIM/version1.5.1-sample/blob/gh-pages/Hotspot%20Model/index.html")
                          },
                        }
                      },
@@ -670,7 +666,7 @@
                          </div>`,
                        methods: {
                          onLink_1Click() {
-                         window.open("XEOKIT plugins/Measurement Center/index.html")
+                         window.open("https://github.com/ARK-BIM/version1.5.1-sample/blob/gh-pages/Measurement%20Center/index.html")
                          },
                        }
                      },
@@ -690,7 +686,7 @@
                        },
                      }
                    }]); 	
-				   
+
  <!-- NAV CUBE SETTINGS--> 
 
 	    new NavCubePlugin(viewer, {
@@ -711,7 +707,7 @@
  <!-- FOOTER--> 
  
 <div class="footer">
-  <p style="font-size: 13px; color: #c7c7c7"> &nbsp <b style="font-size: 15px; color: #e3e3e3"> ARK-BIM </b> &nbsp 1.5.1 - Cloud HBIM for Archaeology  </p> 
+  <p style="font-size: 13px; color: #303030"> &nbsp <b style="font-size: 15px; color: #353535"> ARK-BIM </b> &nbsp 1.5.1 - Cloud HBIM for Archaeology  </p> 
 </div>
 
 
