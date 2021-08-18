@@ -139,16 +139,7 @@
 
 <script type="module">
 
-    import {Viewer} from "lib/xeokit/viewer/Viewer.js";
-    import {NavCubePlugin} from "lib/xeokit/plugins/NavCubePlugin/NavCubePlugin.js";
-    import {XKTLoaderPlugin} from "lib/xeokit/plugins/XKTLoaderPlugin/XKTLoaderPlugin.js";
-	import {AnnotationsPlugin} from "lib/xeokit/plugins/AnnotationsPlugin/AnnotationsPlugin.js";
-    import {DirLight} from "lib/xeokit/viewer/scene/lights/DirLight.js";
-    import {SAO} from "lib/xeokit/viewer/scene/postfx/SAO.js";
-	import {Mesh} from "lib/xeokit/viewer/scene/mesh/Mesh.js";
-    import {buildGridGeometry} from "lib/xeokit/viewer/scene/geometry/builders/buildGridGeometry.js";
-    import {PhongMaterial} from "lib/xeokit/viewer/scene/materials/PhongMaterial.js";
-    import {VBOGeometry} from "lib/xeokit/viewer/scene/geometry/VBOGeometry.js";
+    import {Viewer, NavCubePlugin, XKTLoaderPlugin, AnnotationsPlugin, DirLight, SAO, Mesh, buildGridGeometry, PhongMaterial, VBOGeometry} from "xeokit-sdk.min.es.js";
 
     const viewer = new Viewer({
         canvasId: "myCanvas",
