@@ -140,14 +140,14 @@
 
 <script type="module">
 
-    import {Viewer} from "https://drive.google.com/uc?export=view&id=1P-rpiCCj3AxxczxVmcYBBkZVElstsRXD";
-    import {NavCubePlugin} from "https://drive.google.com/uc?export=view&id=1wRxiZIP1Md5gXhWWE2vGDBT0tek_hIl0";
-    import {XKTLoaderPlugin} from "https://drive.google.com/uc?export=view&id=17a27w5Ot5mIV_4HHWNpwSH10iDPIuMCg";
-    import {AnnotationsPlugin} from "./lib/xeokit/plugins/AnnotationsPlugin/AnnotationsPlugin.js";
+    import {Viewer} from "./lib/xeokit/viewer/Viewer.js";
+    import {NavCubePlugin} from "./lib/xeokit/plugins/NavCubePlugin/NavCubePlugin.js";
+    import {XKTLoaderPlugin} from "./lib/xeokit/plugins/XKTLoaderPlugin/XKTLoaderPlugin.js";
+	import {AnnotationsPlugin} from "./lib/xeokit/plugins/AnnotationsPlugin/AnnotationsPlugin.js";
     import {DirLight} from "./lib/xeokit/viewer/scene/lights/DirLight.js";
     import {SAO} from "./lib/xeokit/viewer/scene/postfx/SAO.js";
-    import {Mesh} from "./lib/xeokit/viewer/scene/mesh/Mesh.js";
-    import {BuildGridGeometry} from "./lib/xeokit/viewer/scene/geometry/builders/buildGridGeometry.js";
+	import {Mesh} from "./lib/xeokit/viewer/scene/mesh/Mesh.js";
+    import {buildGridGeometry} from "./lib/xeokit/viewer/scene/geometry/builders/buildGridGeometry.js";
     import {PhongMaterial} from "./lib/xeokit/viewer/scene/materials/PhongMaterial.js";
     import {VBOGeometry} from "./lib/xeokit/viewer/scene/geometry/VBOGeometry.js";
 
