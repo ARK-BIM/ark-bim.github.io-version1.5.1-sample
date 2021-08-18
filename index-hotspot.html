@@ -7,8 +7,8 @@
 	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script>
 		<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="./assets-xeokit/css/style.css">
-	<link rel="shortcut icon" href="./assets-xeokit/favicon.png" type="image/png">
+	<link rel="stylesheet" href="assets-xeokit/css/style.css">
+	<link rel="shortcut icon" href="assets-xeokit/favicon.png" type="image/png">
 
 </head>
 
@@ -140,16 +140,16 @@
 
 <script type="module">
 
-    import {Viewer} from "./lib/xeokit/viewer/Viewer.js";
-    import {NavCubePlugin} from "./lib/xeokit/plugins/NavCubePlugin/NavCubePlugin.js";
-    import {XKTLoaderPlugin} from "./lib/xeokit/plugins/XKTLoaderPlugin/XKTLoaderPlugin.js";
-	import {AnnotationsPlugin} from "./lib/xeokit/plugins/AnnotationsPlugin/AnnotationsPlugin.js";
-    import {DirLight} from "./lib/xeokit/viewer/scene/lights/DirLight.js";
-    import {SAO} from "./lib/xeokit/viewer/scene/postfx/SAO.js";
-	import {Mesh} from "./lib/xeokit/viewer/scene/mesh/Mesh.js";
-    import {buildGridGeometry} from "./lib/xeokit/viewer/scene/geometry/builders/buildGridGeometry.js";
-    import {PhongMaterial} from "./lib/xeokit/viewer/scene/materials/PhongMaterial.js";
-    import {VBOGeometry} from "./lib/xeokit/viewer/scene/geometry/VBOGeometry.js";
+    import {Viewer} from "lib/xeokit/viewer/Viewer.js";
+    import {NavCubePlugin} from "lib/xeokit/plugins/NavCubePlugin/NavCubePlugin.js";
+    import {XKTLoaderPlugin} from "lib/xeokit/plugins/XKTLoaderPlugin/XKTLoaderPlugin.js";
+	import {AnnotationsPlugin} from "lib/xeokit/plugins/AnnotationsPlugin/AnnotationsPlugin.js";
+    import {DirLight} from "lib/xeokit/viewer/scene/lights/DirLight.js";
+    import {SAO} from "lib/xeokit/viewer/scene/postfx/SAO.js";
+	import {Mesh} from "lib/xeokit/viewer/scene/mesh/Mesh.js";
+    import {buildGridGeometry} from "lib/xeokit/viewer/scene/geometry/builders/buildGridGeometry.js";
+    import {PhongMaterial} from "lib/xeokit/viewer/scene/materials/PhongMaterial.js";
+    import {VBOGeometry} from "lib/xeokit/viewer/scene/geometry/VBOGeometry.js";
 
     const viewer = new Viewer({
         canvasId: "myCanvas",
@@ -172,8 +172,8 @@ sao.blendCutoff = 0.2;
 
         const model = xktLoader.load({
             id: "myModel",
-            src: "./data/sample.xkt",
-            metaModelSrc: "./data/meta.json",
+            src: "data/sample.xkt",
+            metaModelSrc: "data/meta.json",
             edges: false
         });
 		
