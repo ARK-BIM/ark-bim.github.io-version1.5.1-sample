@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Hotspot model-def</title>
+    <title>Hotspot model-src-</title>
 	
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script>
         <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -140,16 +140,16 @@
 
 <script type="module">
 
-    import {Viewer} from "./lib/xeokit/viewer/Viewer.js";
-    import {NavCubePlugin} from "./lib/xeokit/plugins/NavCubePlugin/NavCubePlugin.js";
-    import {XKTLoaderPlugin} from "./lib/xeokit/plugins/XKTLoaderPlugin/XKTLoaderPlugin.js";
-	import {AnnotationsPlugin} from "./lib/xeokit/plugins/AnnotationsPlugin/AnnotationsPlugin.js";
-    import {DirLight} from "./lib/xeokit/viewer/scene/lights/DirLight.js";
-    import {SAO} from "./lib/xeokit/viewer/scene/postfx/SAO.js";
-	import {Mesh} from "./lib/xeokit/viewer/scene/mesh/Mesh.js";
-    import {buildGridGeometry} from "./lib/xeokit/viewer/scene/geometry/builders/buildGridGeometry.js";
-    import {PhongMaterial} from "./lib/xeokit/viewer/scene/materials/PhongMaterial.js";
-    import {VBOGeometry} from "./lib/xeokit/viewer/scene/geometry/VBOGeometry.js";
+    import {Viewer} from "./src/xeokit/viewer/Viewer.js";
+    import {NavCubePlugin} from "./src/xeokit/plugins/NavCubePlugin/NavCubePlugin.js";
+    import {XKTLoaderPlugin} from "./src/xeokit/plugins/XKTLoaderPlugin/XKTLoaderPlugin.js";
+	import {AnnotationsPlugin} from "./src/xeokit/plugins/AnnotationsPlugin/AnnotationsPlugin.js";
+    import {DirLight} from "./src/xeokit/viewer/scene/lights/DirLight.js";
+    import {SAO} from "./src/xeokit/viewer/scene/postfx/SAO.js";
+	import {Mesh} from "./src/xeokit/viewer/scene/mesh/Mesh.js";
+    import {buildGridGeometry} from "./src/xeokit/viewer/scene/geometry/builders/buildGridGeometry.js";
+    import {PhongMaterial} from "./src/xeokit/viewer/scene/materials/PhongMaterial.js";
+    import {VBOGeometry} from "./src/xeokit/viewer/scene/geometry/VBOGeometry.js";
 	
     const viewer = new Viewer({
         canvasId: "myCanvas",
