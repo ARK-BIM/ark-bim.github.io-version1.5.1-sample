@@ -80,17 +80,19 @@
 <script type="module">
 
 
-    import {Viewer} from "./lib/xeokit/viewer/Viewer.js";
-    import {XKTLoaderPlugin} from "./lib/xeokit/plugins/XKTLoaderPlugin/XKTLoaderPlugin.js";
-    import {DistanceMeasurementsPlugin} from "./lib/xeokit/plugins/DistanceMeasurementsPlugin/DistanceMeasurementsPlugin.js";
-	import {AngleMeasurementsPlugin} from "./lib/xeokit/plugins/AngleMeasurementsPlugin/AngleMeasurementsPlugin.js";
-    import {NavCubePlugin} from "./lib/xeokit/plugins/NavCubePlugin/NavCubePlugin.js";
-	import {Mesh} from "./lib/xeokit/viewer/scene/mesh/Mesh.js";
-    import {buildGridGeometry} from "./lib/xeokit/viewer/scene/geometry/builders/buildGridGeometry.js";
-    import {PhongMaterial} from "./lib/xeokit/viewer/scene/materials/PhongMaterial.js";
-    import {VBOGeometry} from "./lib/xeokit/viewer/scene/geometry/VBOGeometry.js";
-	import {DirLight} from "./lib/xeokit/viewer/scene/lights/DirLight.js";
-    import {SAO} from "./lib/xeokit/viewer/scene/postfx/SAO.js";
+	
+	
+    import {Viewer} from "1/Measurements Center/lib/xeokit/viewer/Viewer.js";
+    import {XKTLoaderPlugin} from "1/Measurements Center/lib/xeokit/plugins/XKTLoaderPlugin/XKTLoaderPlugin.js";
+    import {DistanceMeasurementsPlugin} from "1/Measurements Center/lib/xeokit/plugins/DistanceMeasurementsPlugin/DistanceMeasurementsPlugin.js";
+	import {AngleMeasurementsPlugin} from "1/Measurements Center/lib/xeokit/plugins/AngleMeasurementsPlugin/AngleMeasurementsPlugin.js";
+    import {NavCubePlugin} from "1/Measurements Center/lib/xeokit/plugins/NavCubePlugin/NavCubePlugin.js";
+	import {Mesh} from "1/Measurements Center/lib/xeokit/viewer/scene/mesh/Mesh.js";
+    import {buildGridGeometry} from "1/Measurements Center/lib/xeokit/viewer/scene/geometry/builders/buildGridGeometry.js";
+    import {PhongMaterial} from "1/Measurements Center/lib/xeokit/viewer/scene/materials/PhongMaterial.js";
+    import {VBOGeometry} from "1/Measurements Center/lib/xeokit/viewer/scene/geometry/VBOGeometry.js";
+	import {DirLight} from "1/Measurements Center/lib/xeokit/viewer/scene/lights/DirLight.js";
+    import {SAO} from "1/Measurements Center/lib/xeokit/viewer/scene/postfx/SAO.js";
 
     const viewer = new Viewer({
         canvasId: "myCanvas",
