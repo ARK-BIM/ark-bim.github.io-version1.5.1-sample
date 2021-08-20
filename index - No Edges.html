@@ -133,7 +133,7 @@
         },
         }]);
 		
-    <!-- SETTING-->        
+     <!-- SETTING-->        
 		
 	    viewer.registerPlugins([{
         name: "Settings",
@@ -144,9 +144,10 @@
 		<div class="btn-group">
         <button @click="onInfoClick" style="text-align: left"> <span style="color: #505050"> <i class="fas fa-info-circle fa-lg"></i> &nbsp </span>Info</button> 
         <button @click="onHelpClick" style="text-align: left"> <span style="color: #505050"> <i class="fas fa-question-circle fa-lg"></i> &nbsp </span>Help</button> 
-        <button @click="onDownClick"style="text-align: left"> <span style="color: #505050"> <i class="fas fa-download fa-lg"></i> &nbsp </span>Download IFC</button> 
-		<button @click="onEdgesClick"style="text-align: left"> <span style="color: #505050"> <i class="fas fa-border-all fa-lg"></i> &nbsp </span>Show Edges</button> 
-		<button @click="onDarkClick"style="text-align: left"> <span style="color: #505050"> <i class="fas fa-moon fa-lg"></i> &nbsp </span>Dark Mode</button> 
+		<button @click="onFixClick" style="text-align: left"> <span style="color: #505050"> <i class="fas fa-wrench fa-lg"></i> &nbsp </span>Fix Resolution</button> 
+        <button @click="onDownClick"style="text-align: left"> <span style="color: #505050"> <i class="fas fa-download fa-lg"></i> &nbsp </span>Download</button> 
+		<button @click="onEdgesClick"style="text-align: left"> <span style="color: #505050"> <i class="fas fa-border-none  fa-lg"></i> &nbsp </span>No Edges</button> 
+		<button @click="onDarkClick"style="text-align: left"> <span style="color: #505050"> <i class="far fa-moon fa-lg"></i> &nbsp </span>Light Mode</button> 
         </div>
         `,
 		             methods: {
@@ -174,14 +175,25 @@
                      </div>`
                            })
                          },
+					 onFixClick() {
+                     this.$plugins.modalManager.pushModal({
+                     template: `
+                <div style="margin:40px; width: 700px; font-family: poppins">
+                <h3 style="text-align: center">Fix resolution and page zoom</h3>
+				<p>&nbsp;</p>
+                <h4 style="text-align: justify; font-size: 13px">The interface is too big or too small?  Details are unsharp? Here is a fix:</h4>
+				<p style="text-align: justify; font-size: 15px">Press CTRL (control) button + scroll the mouse wheel to adjust page resolution and zoom!</hp>
+                </div>`
+                           })
+                         },
 				     onDownClick() {
-                     window.open("https://drive.google.com/uc?export=view&id=1BfeZuuIZ6jlAG1LltOvb68cnEuH1E3d2")
+                     window.open("https://storage.gra.cloud.ovh.net/v1/AUTH_b6a1c0b6b7c041d3a71d56f84ce25102/bimdata-prod/cloud_5933/project_304118/Sample_Model_ARK-BIM_zHfXQau.ifc?temp_url_sig=37dec9858ce8626817e172a200c5ccfe9ae8e75a&temp_url_expires=1628238081")
                          },
 	                 onEdgesClick() {
-                     window.open("index.html", "_self")
+                     window.open("")
                          },
 		             onDarkClick() {
-                     window.open("index-dark-NO edges.html", "_self")
+                     window.open("")
                          },
                        },
 				 },
