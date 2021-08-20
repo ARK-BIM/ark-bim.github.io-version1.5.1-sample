@@ -7642,33 +7642,16 @@
     }, void 0, !1, void 0, !1, bl, void 0, void 0);
     var _c = {
             "shortcuts-helper": {
-                title_modal: "Manipuler la maquette 3D",
-                title_rotate: "Incliner et faire tourner la maquette 3D",
-                text_rotate: "Maintenez le clic enfoncé, et utilisez le mouvement de votre souris pour tourner et inclier votre maquette 3D.",
-                title_zoom: "Zoomer / dézoomer",
-                text_zoom: "Grâce à la molette de votre souris, rapprochez vous ou éloignez vous de la maquette 3D avec le zoom.",
-                title_open: "Ouvrir le menu de sélection",
-                text_open: "En utilisant le clic-droit, le menu de sélection apparaît et vous offre de nombreuses options pour mettre en valeur certaines parties de votre maquette 3D.",
-                shortcut_1: "Vue de côté droit",
-                shortcut_2: "Vue de face",
-                shortcut_3: "Vue de côté gauche",
-                shortcut_4: "Vue de derrière",
-                shortcut_5: "Vue de dessus",
-                shortcut_6: "Vue de dessous",
-                shortcut_pan: "Outil de vue en mode parallax",
-                shortcut_open: "Ouvre les noeuds du même niveau",
-                shortcut_multiselect: "Sélection multiple",
-                btn: "Continuer"
             }
         },
         mc = {
             "shortcuts-helper": {
-                title_modal: "Manipulate 3D model",
-                title_rotate: "Recline and rotate the 3D model",
+                title_modal: "How To use ARK-BIM",
+                title_rotate: "Rotate the 3D model",
                 text_rotate: "Use the left-click of your mouse pressed to make the 3D model rotate.",
-                title_zoom: "Zoom in / zoom out",
+                title_zoom: "3D model zoom",
                 text_zoom: "Use your mouse wheel to go closer or farther from your 3D model by zooming in and zooming out.",
-                title_open: "Open the selection menu",
+                title_open: "Right-click menu",
                 text_open: "Use the right-click, make the selection menu visible and chose one of the many options to enhance parts of your model.",
                 shortcut_1: "Right side view",
                 shortcut_2: "Front side view",
@@ -7677,9 +7660,9 @@
                 shortcut_5: "Top side view",
                 shortcut_6: "Bottom side view",
                 shortcut_pan: "Pan tool",
-                shortcut_open: "Open nodes of the same level",
+                shortcut_open: "Open groups of the same level",
                 shortcut_multiselect: "Multiselect",
-                btn: "Continue"
+                btn: "OK"
             }
         };
     const gc = gl({
@@ -7690,10 +7673,10 @@
             return i("g", [i("path", {
                 attrs: {
                     d: "M33.3412 0.994125H131.835L142.082 100.1H23.6294L33.3412 0.994125Z",
-                    fill: "#F2F2F2"
+                    fill: "white"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-grey",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
@@ -7705,7 +7688,7 @@
                     d: "M62.4 10.4765L61.0235 47.5647H104V10.4765H62.4Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-grey",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
@@ -7717,7 +7700,7 @@
                     d: "M61.0235 47.5647L64.7706 62.4H100.329L104 47.5647H61.0235Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-grey",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
@@ -7733,7 +7716,7 @@
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M84.0412 58.1941L83.9647 32.1941L100.635 52.0765L90.6177 50.5471L84.0412 58.1941ZM86.1059 37.9294L86.1824 52.5353L89.853 48.2529L95.5118 49.0941L86.1059 37.9294Z",
-                    fill: "black"
+                    fill: "red"
                 }
             }), e._v(" "), i("path", {
                 staticClass: "bimdata-fill-white",
@@ -7746,56 +7729,56 @@
                     d: "M137.418 128.853H137.035C128.7 128.853 121.818 121.971 121.818 113.635V100.865C121.818 92.5294 128.7 85.6471 137.035 85.6471H137.418C145.753 85.6471 152.635 92.5294 152.635 100.865V113.635C152.635 121.971 145.753 128.853 137.418 128.853Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-primary",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M25.6941 129.771H27.2235C35.8647 129.771 42.9 122.812 42.8235 114.171V100.253C42.8235 91.6882 35.8647 84.6529 27.2235 84.6529H25.6941C17.1294 84.6529 10.0941 91.6118 10.0941 100.253V114.171C10.0941 122.735 17.0529 129.771 25.6941 129.771ZM12.3882 100.176C12.3882 92.8353 18.3529 86.8706 25.6941 86.8706H27.2235C34.5647 86.8706 40.5294 92.8353 40.5294 100.176V114.094C40.5294 121.435 34.5647 127.4 27.2235 127.4H25.6941C18.3529 127.4 12.3882 121.435 12.3882 114.094V100.176Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-primary",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     d: "M26.6118 105.071C25.7706 105.071 25.0824 104.382 25.0824 103.541V99.0294C25.0824 98.1882 25.7706 97.5 26.6118 97.5C27.453 97.5 28.1412 98.1882 28.1412 99.0294V103.541C28.1412 104.382 27.453 105.071 26.6118 105.071Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-secondary",
+                staticClass: "bimdata-fill-red",
                 attrs: {
                     d: "M15.6 84.7294C15.0647 84.7294 14.6059 84.2706 14.6059 83.7353V76.0882C14.6059 75.5529 15.0647 75.0941 15.6 75.0941C16.1353 75.0941 16.5941 75.5529 16.5941 76.0882V83.7353C16.5941 84.2706 16.1353 84.7294 15.6 84.7294Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-secondary",
+                staticClass: "bimdata-fill-red",
                 attrs: {
                     d: "M9.86473 91C9.86473 91.5353 9.4059 91.9941 8.87061 91.9941H1.22355C0.688255 91.9941 0.229431 91.5353 0.229431 91C0.229431 90.4647 0.688255 90.0059 1.22355 90.0059H8.87061C9.4059 90.0059 9.86473 90.4647 9.86473 91Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-secondary",
+                staticClass: "bimdata-fill-red",
                 attrs: {
                     d: "M12.1588 87.0235C11.7765 87.4059 11.0882 87.4059 10.7059 87.0235L3.97646 80.2941C3.59411 79.9118 3.59411 79.2235 3.97646 78.8412C4.35881 78.4588 5.04705 78.4588 5.4294 78.8412L12.1588 85.5706C12.5412 85.9529 12.5412 86.6412 12.1588 87.0235Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-secondary",
+                staticClass: "bimdata-fill-red",
                 attrs: {
                     d: "M87.9412 106.294H83.2V101.553H81.0589V106.294H76.3942V108.359H81.0589V113.1H83.2V108.359H87.9412V106.294Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-primary",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M136.424 129.771H137.953C146.594 129.771 153.629 122.812 153.553 114.171V100.253C153.553 91.6882 146.594 84.6529 137.953 84.6529H136.424C127.859 84.6529 120.824 91.6118 120.824 100.253V114.171C120.824 122.735 127.782 129.771 136.424 129.771ZM123.118 100.176C123.118 92.8353 129.082 86.8706 136.424 86.8706H137.953C145.294 86.8706 151.259 92.8353 151.259 100.176V114.094C151.259 121.435 145.294 127.4 137.953 127.4H136.424C129.082 127.4 123.118 121.435 123.118 114.094V100.176Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-primary",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     d: "M137.341 105.071C136.5 105.071 135.812 104.382 135.812 103.541V99.0294C135.812 98.1882 136.5 97.5 137.341 97.5C138.182 97.5 138.871 98.1882 138.871 99.0294V103.541C138.871 104.382 138.182 105.071 137.341 105.071Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-secondary",
+                staticClass: "bimdata-fill-red",
                 attrs: {
                     d: "M103.006 107.365L108.359 102.012C108.818 101.553 108.818 100.865 108.359 100.406C107.9 99.9471 107.212 99.9471 106.753 100.406L100.635 106.524C100.406 106.753 100.329 107.059 100.329 107.365C100.329 107.671 100.406 107.976 100.635 108.206L106.753 114.324C107.212 114.782 107.9 114.782 108.359 114.324C108.818 113.865 108.818 113.176 108.359 112.718L103.006 107.365Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-secondary",
+                staticClass: "bimdata-fill-red",
                 attrs: {
                     d: "M171.447 107.365L166.094 102.012C165.635 101.553 165.635 100.865 166.094 100.406C166.553 99.9471 167.241 99.9471 167.7 100.406L173.818 106.524C174.047 106.753 174.124 107.059 174.124 107.365C174.124 107.671 174.047 107.976 173.818 108.206L167.7 114.324C167.241 114.782 166.553 114.782 166.094 114.324C165.635 113.865 165.635 113.176 166.094 112.718L171.447 107.365Z"
                 }
@@ -7811,14 +7794,14 @@
             return i("g", [i("path", {
                 attrs: {
                     d: "M10.8606 1.10984H112.966L123.589 103.929H0.792725L10.8606 1.10984Z",
-                    fill: "#F2F2F2"
+                    fill: "white"
                 }
             }), e._v(" "), i("path", {
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M0.317078 104.325H123.985L113.363 1.03057V0.71347H10.5435L0.396352 103.929L0.317078 104.325ZM123.193 103.533H1.26837L11.257 1.50622H112.649L123.193 103.533Z",
-                    fill: "#9E9E9E"
+                    fill: "black"
                 }
             }), e._v(" "), i("path", {
                 staticClass: "bimdata-fill-white",
@@ -7830,7 +7813,7 @@
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M39.1616 49.7845H84.5067H84.586V10.5435H40.6678L39.1616 49.7845ZM83.7932 48.9917H40.0336L41.3813 11.3363H83.7932V48.9917Z",
-                    fill: "#9E9E9E"
+                    fill: "black"
                 }
             }), e._v(" "), i("path", {
                 staticClass: "bimdata-fill-white",
@@ -7842,7 +7825,7 @@
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M43.1253 65.1637H80.6222L84.6652 48.9917H39.0823L43.1253 65.1637ZM79.988 64.371H43.7595L40.1129 49.7845H83.6347L79.988 64.371Z",
-                    fill: "#9E9E9E"
+                    fill: "black"
                 }
             }), e._v(" "), i("path", {
                 staticClass: "bimdata-fill-white",
@@ -7854,7 +7837,7 @@
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M63.4197 60.4073L63.3404 33.4539L80.6223 54.0653L70.2373 52.4798L63.4197 60.4073ZM65.5601 39.3995L65.6394 54.5409L69.4445 50.1016L75.3109 50.9736L65.5601 39.3995Z",
-                    fill: "black"
+                    fill: "red"
                 }
             }), e._v(" "), i("path", {
                 staticClass: "bimdata-fill-white",
@@ -7866,32 +7849,32 @@
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M45.1072 115.503C45.1072 124.858 52.7176 132.468 62.072 132.468C71.4264 132.468 79.0368 124.778 79.0368 115.503V102.661C79.0368 93.3062 71.4264 85.6959 62.072 85.6959C52.7176 85.6959 45.1072 93.3062 45.1072 102.661V115.503ZM47.4855 102.581C47.4855 94.5746 53.986 87.9948 62.072 87.9948C70.0787 87.9948 76.6585 94.4953 76.6585 102.581V115.424C76.6585 123.431 70.158 130.01 62.072 130.01C54.0653 130.01 47.4855 123.51 47.4855 115.424V102.581Z",
-                    fill: "#30374B"
+                    fill: "black"
                 }
             }), e._v(" "), i("path", {
                 attrs: {
                     d: "M62.1513 106.783C61.2793 106.783 60.5658 106.069 60.5658 105.197V101.709C60.5658 100.837 61.2793 100.124 62.1513 100.124C63.0233 100.124 63.7368 100.837 63.7368 101.709V105.197C63.7368 106.069 63.0233 106.783 62.1513 106.783Z",
-                    fill: "#30374B"
+                    fill: "red"
                 }
             }), e._v(" "), i("path", {
                 attrs: {
                     d: "M62.1513 98.4591C61.2793 98.4591 60.5658 97.7456 60.5658 96.8736C60.5658 96.0016 61.2793 95.2881 62.1513 95.2881C63.0233 95.2881 63.7368 96.0016 63.7368 96.8736C63.7368 97.7456 63.0233 98.4591 62.1513 98.4591Z",
-                    fill: "#30374B"
+                    fill: "black"
                 }
             }), e._v(" "), i("path", {
                 attrs: {
                     d: "M62.1513 111.539C61.2793 111.539 60.5658 110.826 60.5658 109.954C60.5658 109.082 61.2793 108.368 62.1513 108.368C63.0233 108.368 63.7368 109.082 63.7368 109.954C63.7368 110.826 63.0233 111.539 62.1513 111.539Z",
-                    fill: "#30374B"
+                    fill: "black"
                 }
             }), e._v(" "), i("path", {
                 attrs: {
                     d: "M62.1513 143.011L67.7005 137.462C68.1762 136.987 68.8896 136.987 69.3653 137.462C69.8409 137.938 69.8409 138.651 69.3653 139.127L63.0233 145.469C62.7855 145.707 62.4684 145.786 62.1513 145.786C61.8342 145.786 61.5171 145.707 61.2793 145.469L54.9373 139.127C54.4617 138.651 54.4617 137.938 54.9373 137.462C55.4129 136.987 56.1264 136.987 56.6021 137.462L62.1513 143.011Z",
-                    fill: "#F8C62C"
+                    fill: "red"
                 }
             }), e._v(" "), i("path", {
                 attrs: {
                     d: "M62.1513 149.908L67.7005 144.359C68.1762 143.883 68.8896 143.883 69.3653 144.359C69.8409 144.835 69.8409 145.548 69.3653 146.024L63.0233 152.366C62.7855 152.604 62.4684 152.683 62.1513 152.683C61.8342 152.683 61.5171 152.604 61.2793 152.366L54.9373 146.024C54.4617 145.548 54.4617 144.835 54.9373 144.359C55.4129 143.883 56.1264 143.883 56.6021 144.359L62.1513 149.908Z",
-                    fill: "#F8C62C"
+                    fill: "red"
                 }
             })])
         },
@@ -7905,14 +7888,14 @@
             return i("g", [i("path", {
                 attrs: {
                     d: "M31.9475 21.8475L0.859558 72.1326H145.913L115.613 21.8475H31.9475Z",
-                    fill: "#F2F2F2"
+                    fill: "white"
                 }
             }), e._v(" "), i("path", {
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M0.214905 72.4907H146.557L115.828 21.561H31.7326L0.214905 72.4907ZM145.34 71.7744H1.50427L32.0908 22.2056H115.398L145.34 71.7744Z",
-                    fill: "#9E9E9E"
+                    fill: "black"
                 }
             }), e._v(" "), i("path", {
                 attrs: {
@@ -7936,7 +7919,7 @@
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M52.8638 11.2461H94.195L90.6135 0.286499H56.8752L52.8638 11.2461ZM93.1922 10.5298H53.8667L57.3766 1.00281H90.1121L93.1922 10.5298Z",
-                    fill: "#9E9E9E"
+                    fill: "black"
                 }
             }), e._v(" "), i("path", {
                 staticClass: "bimdata-fill-white",
@@ -7948,7 +7931,7 @@
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M84.1667 55.4425H119.911C121.916 55.4425 123.564 53.795 123.564 51.7893V9.02551C123.564 7.01983 121.916 5.37231 119.911 5.37231H84.1667C82.161 5.37231 80.5135 7.01983 80.5135 9.02551V51.7893C80.5135 53.795 82.161 55.4425 84.1667 55.4425ZM81.2298 9.02551C81.2298 7.37799 82.5908 6.08863 84.1667 6.08863H119.911C121.558 6.08863 122.848 7.44962 122.848 9.02551V51.7893C122.848 53.4369 121.487 54.7262 119.911 54.7262H84.1667C82.5192 54.7262 81.2298 53.3652 81.2298 51.7893V9.02551Z",
-                    fill: "#9E9E9E"
+                    fill: "red"
                 }
             }), e._v(" "), i("path", {
                 staticClass: "bimdata-fill-white",
@@ -7956,29 +7939,29 @@
                     d: "M73.9234 99.7822H73.5653C65.7575 99.7822 59.3107 93.3354 59.3107 85.5276V73.5652C59.3107 65.7574 65.7575 59.3106 73.5653 59.3106H73.9234C81.7312 59.3106 88.178 65.7574 88.178 73.5652V85.5276C88.178 93.4071 81.8029 99.7822 73.9234 99.7822Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-primary",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M73.0638 100.713H74.4964C82.5908 100.713 89.1092 94.1234 89.1092 86.1007V73.0638C89.1092 65.0411 82.5908 58.451 74.4964 58.451H73.0638C65.0411 58.451 58.451 64.9695 58.451 73.0638V86.1007C58.451 94.1234 64.9695 100.713 73.0638 100.713ZM60.6 72.9922C60.6 66.1156 66.1872 60.5283 73.0638 60.5283H74.4964C81.373 60.5283 86.9603 66.1156 86.9603 72.9922V86.029C86.9603 92.9056 81.373 98.4929 74.4964 98.4929H73.0638C66.1872 98.4929 60.6 92.9056 60.6 86.029V72.9922Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-primary",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     d: "M73.9234 77.5766C73.1355 77.5766 72.4908 76.9319 72.4908 76.1439V71.9177C72.4908 71.1298 73.1355 70.4851 73.9234 70.4851C74.7114 70.4851 75.356 71.1298 75.356 71.9177V76.1439C75.2844 76.9319 74.7114 77.5766 73.9234 77.5766Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-secondary",
+                staticClass: "bimdata-fill-red",
                 attrs: {
                     d: "M84.5965 58.451C85.0979 58.451 85.5277 58.0213 85.5277 57.5198V50.3567C85.5277 49.8553 85.0979 49.4255 84.5965 49.4255C84.0951 49.4255 83.6653 49.8553 83.6653 50.3567V57.5198C83.6653 58.0213 84.0951 58.451 84.5965 58.451Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-secondary",
+                staticClass: "bimdata-fill-red",
                 attrs: {
                     d: "M89.9688 64.3964C89.9688 64.8978 90.3986 65.3276 90.9 65.3276H98.0631C98.5646 65.3276 98.9943 64.8978 98.9943 64.3964C98.9943 63.895 98.5646 63.4652 98.0631 63.4652H90.9C90.3986 63.3936 89.9688 63.8234 89.9688 64.3964Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-secondary",
+                staticClass: "bimdata-fill-red",
                 attrs: {
                     d: "M87.8199 60.6716C88.1781 61.0298 88.8227 61.0298 89.1809 60.6716L95.4844 54.3681C95.8426 54.0099 95.8426 53.3652 95.4844 53.0071C95.1263 52.6489 94.4816 52.6489 94.1234 53.0071L87.8199 59.3106C87.3901 59.6688 87.3901 60.2418 87.8199 60.6716Z"
                 }
@@ -8018,19 +8001,19 @@
                     d: "M82.161 5.15742L82.0894 14.0397L84.4532 11.8191L88.0347 12.034L82.161 5.15742Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-primary",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M81.5163 15.8305L81.4447 3.65317L89.3241 12.9652L84.5965 12.2489L81.5163 15.8305ZM82.5192 6.37515V13.1801L84.2383 11.1744L86.8887 11.6042L82.5192 6.37515Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-primary",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     d: "M119.409 48.7092L118.192 49.9269C118.12 49.9986 117.977 49.9986 117.905 49.9269C117.833 49.8553 117.833 49.712 117.905 49.6404L119.123 48.4227C119.194 48.351 119.338 48.351 119.409 48.4227C119.481 48.4943 119.481 48.6376 119.409 48.7092Z"
                 }
             }), e._v(" "), i("path", {
-                staticClass: "bimdata-fill-primary",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     d: "M119.123 48.7092L117.905 47.4915C117.833 47.4198 117.833 47.2766 117.905 47.2049C117.977 47.1333 118.12 47.1333 118.192 47.2049L119.409 48.4227C119.481 48.4943 119.481 48.6376 119.409 48.7092C119.338 48.7808 119.194 48.7808 119.123 48.7092Z"
                 }
@@ -8040,7 +8023,7 @@
                     y: "43.7666",
                     width: "41.9043",
                     height: "0.286525",
-                    fill: "#9E9E9E"
+                    fill: "black"
                 }
             })])
         },
@@ -8055,21 +8038,21 @@
                     mask: "url(#mask0)"
                 }
             }, [t("path", {
-                staticClass: "bimdata-fill-primary",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M13.7372 6.40564C9.78899 6.40564 6.57638 9.61783 6.57638 13.566V21.0546C6.57638 25.0028 9.78899 28.2154 13.7372 28.2154H14.5709C18.5195 28.2154 21.7313 25.0028 21.7313 21.0546V13.566C21.7313 9.61783 18.5195 6.40564 14.5709 6.40564H13.7372ZM14.5709 29.4475H13.7372C9.10926 29.4475 5.34424 25.6825 5.34424 21.0546V13.566C5.34424 8.93851 9.10926 5.17349 13.7372 5.17349H14.5709C19.1989 5.17349 22.9635 8.93851 22.9635 13.566V21.0546C22.9635 25.6825 19.1989 29.4475 14.5709 29.4475Z"
                 }
             })]), this._v(" "), t("path", {
-                staticClass: "bimdata-fill-primary",
+                staticClass: "bimdata-fill-black",
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M14.2313 16.1565C13.784 16.1565 13.4181 15.7905 13.4181 15.3433V12.9217C13.4181 12.474 13.784 12.1081 14.2313 12.1081C14.6786 12.1081 15.0449 12.474 15.0449 12.9217V15.3433C15.0449 15.7905 14.6786 16.1565 14.2313 16.1565Z"
                 }
             }), this._v(" "), t("path", {
-                staticClass: "bimdata-fill-secondary",
+                staticClass: "bimdata-fill-red",
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
@@ -8080,14 +8063,14 @@
                     mask: "url(#mask1)"
                 }
             }, [t("path", {
-                staticClass: "bimdata-fill-secondary",
+                staticClass: "bimdata-fill-red",
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
                     d: "M5.2217 8.60319C5.2217 8.90465 4.97486 9.15149 4.67299 9.15149H0.548592C0.247128 9.15149 -0.00012207 8.90465 -0.00012207 8.60319C-0.00012207 8.30131 0.247128 8.05447 0.548592 8.05447H4.67299C4.97486 8.05447 5.2217 8.30131 5.2217 8.60319Z"
                 }
             })]), this._v(" "), t("path", {
-                staticClass: "bimdata-fill-secondary",
+                staticClass: "bimdata-fill-red",
                 attrs: {
                     "fill-rule": "evenodd",
                     "clip-rule": "evenodd",
