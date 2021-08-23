@@ -39231,8 +39231,8 @@
         i18n: {
             en: {
                 bcf: {
-                    tooltip: "BCF",
-                    btn_report: "Report an issue",
+                    tooltip: "BIM Collaboration Format",
+                    btn_report: "New Revision",
                     btn_export: "Export BCF format",
                     element_index: "Index",
                     btn_import: "Import BCF",
@@ -39253,7 +39253,7 @@
                     btn_elements: "Elements",
                     btn_validate: "Validate",
                     new_error: " New error",
-                    new_issue: "Create a new issue",
+                    new_issue: "New Revision",
                     btn_comment: "Publish",
                     btn_reply: "Reply",
                     btn_cancel: "Cancel",
